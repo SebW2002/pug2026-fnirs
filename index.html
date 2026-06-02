@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fNIRS Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-accent-bar"></div>
+
+    <nav class="tab-bar">
+        <div class="tab-bar-inner">
+            <button class="tab-btn active" data-tab="fnirs" aria-selected="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                <span>fNIRS hands-on</span>
+            </button>
+            <button class="tab-btn" data-tab="contact" aria-selected="false">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="4"></circle><path d="M5.5 21v-2a4 4 0 0 1 4-4h5a4 4 0 0 1 4 4v2"></path></svg>
+                <span>Contact Us</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="tab-content active" id="tab-fnirs">
+        <div class="section-container paper-section">
+            <h2 class="section-heading">Overview</h2>
+            <div class="section-body">
+                <p>Insert your central overview text about the fNIRS project here. You can describe the main goals, methodology, and the significance of the hands-on approach.</p>
+            </div>
+
+            <div class="collapsible-section">
+                <details class="collapse-box">
+                    <summary>fNIRS Workshop</summary>
+                    <div class="collapse-content">
+                        <a href="https://example.com/workshop" target="_blank" class="action-link">Go to Workshop Website</a>
+                    </div>
+                </details>
+
+                <details class="collapse-box">
+                    <summary>fNIRS Hackathon</summary>
+                    <div class="collapse-content">
+                        <a href="https://example.com/hackathon" target="_blank" class="action-link">Go to Hackathon Website</a>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <div class="section-container poster-viewer-section">
+            <h2 class="section-heading poster-heading">Poster Viewer</h2>
+            <div class="poster-viewer-wrapper">
+                <div class="poster-toolbar">
+                    <div class="toolbar-left">
+                        <button class="poster-tool-btn" id="zoom-out">-</button>
+                        <span class="zoom-level" id="zoom-level">100%</span>
+                        <button class="poster-tool-btn" id="zoom-in">+</button>
+                        <button class="poster-tool-btn" id="zoom-reset">Reset</button>
+                    </div>
+                    <div class="toolbar-right">
+                        <a href="#" download class="poster-tool-btn download-btn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            <span>Download</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="poster-viewport" id="poster-viewport">
+                    <img src="https://via.placeholder.com/800x1200?text=Your+Poster+Here" alt="Poster" class="poster-canvas" id="poster-canvas">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main class="tab-content" id="tab-contact">
+        <div class="contact-section">
+            <div class="contact-container">
+                
+                <div class="profile-photo-frame">
+                    <img src="https://via.placeholder.com/180" alt="Profile Photo" class="profile-photo">
+                </div>
+
+                <div class="contact-links-grid">
+                    <a href="mailto:example@domain.com" class="contact-slot main-mail-slot">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        Send us an Email
+                    </a>
+                    
+                    <a href="#" target="_blank" class="contact-slot">Website 1</a>
+                    <a href="#" target="_blank" class="contact-slot">Website 2</a>
+                    
+                    <a href="#" target="_blank" class="contact-slot">LinkedIn Profile 1</a>
+                    <a href="#" target="_blank" class="contact-slot">LinkedIn Profile 2</a>
+                </div>
+
+                <div class="student-cta">
+                    <p class="student-text">Here is space for a small introductory text, an open call for collaboration, or information for interested students and researchers.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

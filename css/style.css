@@ -1,0 +1,448 @@
+/* ═══════════════════════════════════════════════════════════════
+   fNIRS PROJECT SITE
+   Theme: Professional Academic
+   Dominant: #611995 (Violet)
+   Headings: Glacial Indifference
+   Body: Lora
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── CSS Variables ── */
+:root {
+    /* Primary Violet Palette */
+    --primary: #611995;
+    --primary-dark: #4A1273;
+    --primary-light: #8327C2;
+    --primary-soft: rgba(97, 25, 149, 0.08);
+    --primary-glow: rgba(97, 25, 149, 0.15);
+
+    /* Neutrals */
+    --bg-primary: #FAFAF8;
+    --bg-secondary: #F3F2EF;
+    --bg-card: #FFFFFF;
+    --text-primary: #1A1A1E;
+    --text-secondary: #4A4A52;
+    --text-muted: #8A8A92;
+    --border-light: #E8E6E3;
+    --border-medium: #D4D2CE;
+
+    /* Typography */
+    --font-heading: 'Glacial Indifference', 'Helvetica Neue', sans-serif;
+    --font-body: 'Lora', 'Georgia', serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+    /* Spacing */
+    --section-gap: 3.5rem;
+    --container-max: 860px;
+    --container-padding: 2rem;
+
+    /* Transitions */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TOP ACCENT BAR
+   ═══════════════════════════════════════════════════════════════ */
+.top-accent-bar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TAB BAR / NAVIGATION
+   ═══════════════════════════════════════════════════════════════ */
+.tab-bar {
+    position: sticky;
+    top: 4px;
+    z-index: 1000;
+    background: rgba(250, 250, 248, 0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-light);
+    padding: 0.6rem 1.5rem;
+}
+
+.tab-bar-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.tab-btn {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.65rem 1.3rem;
+    border: 1.5px solid transparent;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.25s var(--ease-out);
+}
+
+.tab-btn:hover {
+    color: var(--primary);
+    background: var(--primary-soft);
+}
+
+.tab-btn.active {
+    color: var(--primary);
+    background: var(--primary-soft);
+    border-color: rgba(97, 25, 149, 0.2);
+}
+
+.tab-btn svg {
+    flex-shrink: 0;
+    opacity: 0.7;
+}
+
+.tab-btn.active svg {
+    opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TAB CONTENT
+   ═══════════════════════════════════════════════════════════════ */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.35s var(--ease-out);
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION CONTAINERS
+   ═══════════════════════════════════════════════════════════════ */
+.section-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.paper-section {
+    padding: var(--section-gap) 0;
+}
+
+.section-heading {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--primary);
+    letter-spacing: 0.02em;
+    margin-bottom: 1.5rem;
+}
+
+.section-body {
+    font-family: var(--font-body);
+    font-size: 1.02rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COLLAPSIBLE SECTIONS (Workshop & Hackathon)
+   ═══════════════════════════════════════════════════════════════ */
+.collapsible-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.collapse-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.collapse-box summary {
+    padding: 1.2rem 1.5rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--primary);
+    background: var(--bg-secondary);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+}
+
+.collapse-box summary::-webkit-details-marker {
+    display: none;
+}
+
+.collapse-box summary::after {
+    content: '+';
+    font-size: 1.4rem;
+    color: var(--primary);
+}
+
+.collapse-box[open] summary::after {
+    content: '−';
+}
+
+.collapse-box summary:hover {
+    background: var(--primary-soft);
+}
+
+.collapse-content {
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-light);
+}
+
+.action-link {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background: var(--primary);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    transition: background 0.2s;
+}
+
+.action-link:hover {
+    background: var(--primary-dark);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   POSTER VIEWER
+   ═══════════════════════════════════════════════════════════════ */
+.poster-viewer-section {
+    padding: 2.5rem 0 var(--section-gap);
+    border-top: 1px solid var(--border-light);
+}
+
+.poster-viewer-wrapper {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.poster-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.toolbar-left, .toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.poster-tool-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.65rem;
+    border: 1px solid var(--border-medium);
+    border-radius: 5px;
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.2s var(--ease-out);
+    text-decoration: none;
+}
+
+.poster-tool-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--primary-soft);
+}
+
+.zoom-level {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    min-width: 3rem;
+    text-align: center;
+}
+
+.download-btn {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.download-btn:hover {
+    background: var(--primary-dark);
+    color: #fff;
+    border-color: var(--primary-dark);
+}
+
+.poster-viewport {
+    position: relative;
+    overflow: auto;
+    height: 70vh;
+    min-height: 400px;
+    background: #e8e6e3;
+}
+
+.poster-canvas {
+    transform-origin: top left;
+    transition: transform 0.2s var(--ease-out);
+    display: block;
+    margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CONTACT TAB (GRID & SLOTS)
+   ═══════════════════════════════════════════════════════════════ */
+.contact-section {
+    padding: 3rem 0 4rem;
+}
+
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Profile Photo */
+.profile-photo-frame {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--primary);
+    box-shadow: 0 8px 24px rgba(97, 25, 149, 0.15);
+    background: var(--bg-secondary);
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Links Grid */
+.contact-links-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    width: 100%;
+}
+
+.contact-slot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-medium);
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.contact-slot:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--primary-soft);
+    transform: translateY(-2px);
+}
+
+.main-mail-slot {
+    grid-column: 1 / -1;
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    font-size: 1.1rem;
+    padding: 1.2rem;
+}
+
+.main-mail-slot:hover {
+    background: var(--primary-dark);
+    color: #fff;
+}
+
+/* Student CTA Text */
+.student-cta {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+    width: 100%;
+}
+
+.student-text {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+    .contact-links-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tab-btn span {
+        display: none;
+    }
+
+    .poster-viewport {
+        height: 50vh;
+    }
+}
